@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "ts-node-dev src/server.ts",
+    "dev": "ts-node-dev API/src/server.ts",
     "build": "tsc"
   },
   "repository": {
@@ -27,7 +27,8 @@
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.16",
     "sequelize": "^6.20.1",
-    "sequelize-cli": "^6.4.1"
+    "sequelize-cli": "^6.4.1",
+    "ts-node-dev": "^2.0.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.18.2",
