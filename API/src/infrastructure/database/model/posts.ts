@@ -39,6 +39,6 @@ export const Post = db.define(
 
   },
   {
-    tableName: "posts",
+    tableName: "post",
   }
 );
