@@ -25,7 +25,7 @@ function Login() {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     </Form.Group>
-                    <Button variant="success" type="submit" style={{ width: "350px" }}>
+                    <Button variant="success" type="submit"  style={{ width: "350px" }}>
                         Entrar
                     </Button>
                     <div className="cadastro">
