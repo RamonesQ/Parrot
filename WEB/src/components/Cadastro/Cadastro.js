@@ -4,7 +4,7 @@ import logo from '../../assets/Imagens/logo.png'
 
 function Cadastro(){
     return(
-        <h1>
+        <div>
             <Container>
                 <Form>
                     <img src={logo} alt='Logo' id='logo' className='logo'/>
@@ -27,12 +27,12 @@ function Cadastro(){
                     <Form.Group className="mb-3" controlId="formBasicLinkPhoto">
                         <Form.Control type="text" placeholder="link da foto" />
                     </Form.Group>
-                    <Button variant="success" type="submit"  style={{ width: "350px" }}>
-                        Entrar
+                    <Button type="submit">
+                        entrar
                     </Button>
                 </Form>
             </Container>
-        </h1>
+        </div>
     )
 }
 
