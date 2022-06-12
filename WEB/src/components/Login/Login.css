@@ -1,0 +1,22 @@
+body {
+
+    background-image: url(../../assets/Imagens/background.png)
+
+}
+
+div.container {
+
+    border: 1px solid #C5C5C5;
+    margin-top: 50px;
+     width: 25%;
+    height: 500px;
+    background-color: white
+
+}
+
+div.form{
+    margin-top: 20%;
+}
+h1{
+    text-align: center;
+}
