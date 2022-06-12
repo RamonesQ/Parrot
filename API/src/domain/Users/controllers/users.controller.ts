@@ -6,7 +6,7 @@ import bcrypt from 'bcryptjs'
 export const UsersController = {
     async getAllUser(req: Request, res: Response) {
         try {
-        const { page = 1 }:any = req.query;
+            const { page = 1 }: any = req.query;
             const limit = 5;
             const offset = limit * (page - 1);
             let filter = {
@@ -34,7 +34,7 @@ export const UsersController = {
     },
     async postUser(req: Request, res: Response) {
         try {
-            const {name, email, apartment, password} = req.body
+            const { name, email, apartment, password } = req.body
             const existingUser =
                 await User.count({ where: { email } })
             if (existingUser) {
@@ -45,7 +45,7 @@ export const UsersController = {
                 name,
                 email,
                 apartment,
-                password:newSenha
+                password: newSenha
             });
             res.status(201).json(responseUsers);
         } catch (error) {
@@ -54,16 +54,16 @@ export const UsersController = {
         }
     },
     async putUser(req: Request, res: Response) {
-        const {id} = req.params;
         try {
-            const {name, email, apartment, password} = req.body
+            const { id } = req.params;
+            const { name, email, apartment, password } = req.body
             const update = await User.update({
                 name,
                 email,
                 apartment,
                 password
-            },{
-                where:{
+            }, {
+                where: {
                     idUser: id
                 }
             }
@@ -75,5 +75,20 @@ export const UsersController = {
 
         }
     },
+    async deleteUser(req: Request, res: Response) {
+        try {
+            const { id } = req.params;
+            const del = await User.destroy({
+                    where: {
+                        idUser: id
+                    }
+                }
+            );
+            if (!del) return res.status(404).json("Id não encontrado");
+            return res.status(204);
+        } catch (error) {
+            return res.status(500).json("Erro ao tentar excluir")
+        };
 
-}
+        }
+    }
