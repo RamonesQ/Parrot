@@ -1,5 +1,7 @@
 import app from ".";
 
-app.listen(4000, ()=>{
-    console.log('Servidor rodando em localhost:6000')
+
+app.listen(4000, () => {
+    console.log('Servidor rodando na porta 4000');
+    
 })

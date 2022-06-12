@@ -1,0 +1,29 @@
+{
+  "name": "parrot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev src/server.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/supertest": "^2.0.12",
+    "D": "^1.0.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-validation": "^3.0.8",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.15.0",
+    "supertest": "^6.2.3",
+    "ts-node": "^10.8.0",
+    "typescript": "^4.7.3"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.4.1",
+    "ts-jest": "^28.0.3",
+    "ts-node-dev": "^2.0.0"
+  }
+}
