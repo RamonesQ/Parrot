@@ -1,18 +1,23 @@
 import "./Login.css"
 import { Fragmet } from "react"
 import { Navbar, Container, Button, Table, Modal, Form } from "react-bootstrap"
+import Logo from "../Login/logo.png"
 
 function Login() {
     return (
         <div>
 
-            <h1>Testando</h1>
-
             <Container>
-                <Form style={{marginTop: "200px"}}>
-                    <img src="./logo.png" alt="" />
-                    <h1>Login</h1>
+
+                <Form style={{ marginTop: "50px" }}>
+                    <div className="logo">
+                        <img id="logo" src={Logo} alt="Logo" />
+                    </div>
+                    <div className="login">
+                        <h1>LOGIN</h1>
+                    </div>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
+
                         <Form.Control type="email" placeholder="email" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -20,9 +25,12 @@ function Login() {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     </Form.Group>
-                    <Button variant="success" type="submit" style={{width: "350px"}}>
+                    <Button variant="success" type="submit" style={{ width: "350px" }}>
                         Entrar
                     </Button>
+                    <div className="cadastro">
+                        <p>Cadastre-se</p>
+                    </div>
                 </Form>
 
             </Container>
