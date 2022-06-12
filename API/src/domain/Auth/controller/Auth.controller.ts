@@ -11,15 +11,14 @@ export const AuthController = {
 
         const userLogin = await User.findOne({
             where:{
-                email,
-                password
+                email
             }
         })
         if (!userLogin){
             return res.status(401).json("Usuário ou Senha invalido, verique e tente novamente");
         }
 
-        if (bcryptjs.compareSync(password, userLogin.password)){
+        if (!bcryptjs.compareSync(password, userLogin.password)){
             return res.status(401).json("Senha invalido, verique e tente novamente");
         }
         const key = 'abc'
