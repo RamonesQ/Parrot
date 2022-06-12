@@ -6,26 +6,40 @@ import bcrypt from 'bcryptjs'
 export const UsersController = {
     async getAllUser(req: Request, res: Response) {
         try {
-            const getUsers = await User.findAll();
-            return res.json(getUsers);
-        } catch (error) {
-            console.error(error);
-
+        const { page = 1 }:any = req.query;
+            const limit = 5;
+            const offset = limit * (page - 1);
+            let filter = {
+                limit,
+                offset,
+            };
+            const getUsers = await User.findAll(filter);
+            return res.status(200).json(getUsers);
         }
+        catch (error) {
+            return res.status(500).json("Erro ao listar os Usuarios");
+        };
     },
     async getUserById(req: Request, res: Response) {
         try {
             const { idUser } = req.params;
-            const get = await User.findByPk(idUser);
+            const getUser = await User.findByPk(idUser);
 
-            return res.json(get);
-        } catch (error) {
-            return res.status(500).json("Algo errado aconteceu, chame o batman!");
+            if (!getUser) return res.status(404).json("Id não encontrado");
+            return res.status(200).json(getUser);
         }
+        catch (error) {
+            return res.status(500).json("Erro ao listar o psicologo");
+        };
     },
     async postUser(req: Request, res: Response) {
         try {
             const {name, email, apartment, password} = req.body
+            const existingUser =
+                await User.count({ where: { email } })
+            if (existingUser) {
+                return res.status(400).json('Email já está cadastrado')
+            }
             const newSenha = bcrypt.hashSync(password, 10)
             const responseUsers = await User.create({
                 name,
@@ -33,9 +47,9 @@ export const UsersController = {
                 apartment,
                 password:newSenha
             });
-            return res.json(responseUsers);
+            res.status(201).json(responseUsers);
         } catch (error) {
-            console.error(error);
+            return res.status(500).json("Erro ao tentar cadastrar");
 
         }
     },
