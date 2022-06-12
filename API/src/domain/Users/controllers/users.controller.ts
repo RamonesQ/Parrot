@@ -39,5 +39,27 @@ export const UsersController = {
 
         }
     },
+    async putUser(req: Request, res: Response) {
+        const {id} = req.params;
+        try {
+            const {name, email, apartment, password} = req.body
+            const update = await User.update({
+                name,
+                email,
+                apartment,
+                password
+            },{
+                where:{
+                    idUser: id
+                }
+            }
+            );
+            if (update == 0) return res.status(400).json("Id invalido");
+            return res.status(200).json("Usuario Atualizado");
+        } catch (error) {
+            return res.status(500).json("Erro ao tentar atualizar")
+
+        }
+    },
 
 }
