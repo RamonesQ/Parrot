@@ -9,7 +9,7 @@ routes.get('/user', UsersController.getAllUser);
 routes.get('/user/:id', UsersController.getUserById);
 routes.post('/user', UsersController.postUser);
 routes.post('/login', AuthController.login);
-// // routes.put()
+routes.put('/user/:id', UsersController.putUser)
 // // routes.delete()
 
 
