@@ -11,17 +11,8 @@ export const Post = db.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING(70),
-    },
-    email: {
-      type: DataTypes.STRING(70),
-    },
-    apartment: {
-      type: DataTypes.INTEGER,
-    },
-    password: {
-      type: DataTypes.STRING(120),
+    content: {
+      type: DataTypes.TEXT,
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -29,12 +20,13 @@ export const Post = db.define(
     updatedAt: {
       type: DataTypes.DATE,
     },
-    user_idUsers: {
-      type: DataTypes.DATE,
+    user_idUser: {
+      type: DataTypes.INTEGER,
       references: {
           model: User,
           key: 'idUser'
       }
+      
     },
 
   },
