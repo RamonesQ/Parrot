@@ -1,47 +1,61 @@
 import { Request, Response } from "express";
-import { User } from "../../../infrastructure/database/model/users";
+import { relationship } from "../../../infrastructure/database/model/";
 import bcrypt from 'bcryptjs'
+import jwt from "jsonwebtoken";
+require('dotenv').config();
+import bcryptjs from "bcryptjs";
+import { Op } from 'sequelize';
 
 
 export const UsersController = {
     async getAllUser(req: Request, res: Response) {
         try {
-            const { page = 1 }: any = req.query;
-            const limit = 5;
+            const { termo, page = 1, limit = 5 }: any = req.query;
             const offset = limit * (page - 1);
             let filter = {
                 limit,
                 offset,
+                attributes: ['idUser', 'name', 'email', 'apartment', 'createdAt', 'updatedAt'],
             };
-            const getUsers = await User.findAll(filter);
+
+            if (termo) {
+                Object.assign(filter, {
+                    where: {
+                        name: { [Op.substring]: termo }
+                    }
+                })
+            }
+            const getUsers = await relationship.User.findAll(filter);
             return res.status(200).json(getUsers);
         }
         catch (error) {
-            return res.status(500).json("Erro ao listar os Usuarios");
+            return res.status(500).json(error);
         };
     },
     async getUserById(req: Request, res: Response) {
         try {
-            const { idUser } = req.params;
-            const getUser = await User.findByPk(idUser);
+            const { id } = req.params;
+            const getUser = await relationship.User.findByPk(id, {
+                attributes: ['idUser', 'name', 'email', 'apartment', 'createdAt', 'updatedAt']
+            });
 
             if (!getUser) return res.status(404).json("Id não encontrado");
             return res.status(200).json(getUser);
         }
         catch (error) {
-            return res.status(500).json("Erro ao listar o psicologo");
+            return res.status(500).json(error);
         };
     },
     async postUser(req: Request, res: Response) {
         try {
             const { name, email, apartment, password } = req.body
             const existingUser =
-                await User.count({ where: { email } })
+                await relationship.User.count({ where: { email } })
             if (existingUser) {
                 return res.status(400).json('Email já está cadastrado')
             }
             const newSenha = bcrypt.hashSync(password, 10)
-            const responseUsers = await User.create({
+            const responseUsers = await relationship.User.create({
                 name,
                 email,
                 apartment,
@@ -49,7 +63,7 @@ export const UsersController = {
             });
             res.status(201).json(responseUsers);
         } catch (error) {
-            return res.status(500).json("Erro ao tentar cadastrar");
+            return res.status(500).json(error);
 
         }
     },
@@ -57,7 +71,7 @@ export const UsersController = {
         try {
             const { id } = req.params;
             const { name, email, apartment, password } = req.body
-            const update = await User.update({
+            const update = await relationship.User.update({
                 name,
                 email,
                 apartment,
@@ -71,24 +85,51 @@ export const UsersController = {
             if (update == 0) return res.status(400).json("Id invalido");
             return res.status(200).json("Usuario Atualizado");
         } catch (error) {
-            return res.status(500).json("Erro ao tentar atualizar")
+            return res.status(500).json(error)
 
         }
     },
     async deleteUser(req: Request, res: Response) {
         try {
             const { id } = req.params;
-            const del = await User.destroy({
-                    where: {
-                        idUser: id
-                    }
+            const del = await relationship.User.destroy({
+                where: {
+                    idUser: id
                 }
+            }
             );
             if (!del) return res.status(404).json("Id não encontrado");
             return res.status(204);
         } catch (error) {
-            return res.status(500).json("Erro ao tentar excluir")
+            return res.status(500).json(error)
         };
 
+    },
+
+    async login(req: Request, res: Response) {
+        const { email, password } = req.body;
+
+        const userLogin = await relationship.User.findOne({
+            where: {
+                email,
+                password
+            }
+        })
+        if (!userLogin) {
+            return res.status(401).json("Usuário ou Senha invalido, verique e tente novamente");
         }
+
+        if (!bcryptjs.compareSync(password, userLogin.password)) {
+            return res.status(401).json("Senha invalido, verique e tente novamente");
+        }
+        const key = 'abc'
+        const token = jwt.sign({
+            idUser: userLogin.idUser,
+            nome: userLogin.name,
+            email: userLogin.email
+        }, key);
+
+        return res.json(token);
+
     }
+}
