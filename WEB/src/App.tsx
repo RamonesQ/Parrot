@@ -4,6 +4,7 @@ import './App.css'
 import Login from './components/Login/Login'
 import Perfil from './components/Perfil/Perfil'
 import Cadastro from './components/Cadastro/Cadastro'
+import Header from './components/Header/Header'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,7 +13,8 @@ function App() {
     <div className="App">
       {/* <Login /> */}
       {/* <Perfil /> */}
-      <Cadastro />
+      {/* <Cadastro /> */}
+      <Header  />
     </div>
   )
 }
