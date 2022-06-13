@@ -1,0 +1,27 @@
+body {
+
+    background-image:  url(../../assets/Imagens/background.png);
+    
+}
+div.container{
+      
+    border: 1px solid #C5C5C5;
+     margin-top: 5%;
+    background-color: white;
+    width: 487px;
+    height: 642px;
+}
+.logo {
+
+    margin-top: 10%;
+}
+.login{
+    margin-bottom: 8%;
+}
+.botao{
+    margin-bottom: 10%;
+}
+#cadastre{
+    text-decoration: none;
+    color:  #555555;
+}
