@@ -15,10 +15,10 @@ const Login = () => {
         <h5 className='login'>LOGIN</h5>
         <Form>
   <Form.Group className="mb-3" controlId="formBasicEmail"style={{padding: "1% 15%"}}>
-    <Form.Control type="email" placeholder="email" />
+    <Form.Control type="email" placeholder="email" style={{textAlign: "center" }}/>
      </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicPassword" style={{padding: "1% 15%"}}>
-        <Form.Control type="password" placeholder="senha"  />
+        <Form.Control type="password" placeholder="senha" style={{textAlign: "center" }} />
   </Form.Group>
     <Button className='botao' type="submit" style={{background: "#76BB4C", padding: "1% 30%", color: "black"}}>
     Submit
