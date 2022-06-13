@@ -111,8 +111,7 @@ export const UsersController = {
 
         const userLogin = await relationship.User.findOne({
             where: {
-                email,
-                password
+                email
             }
         })
         if (!userLogin) {
