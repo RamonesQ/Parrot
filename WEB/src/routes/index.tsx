@@ -5,6 +5,7 @@ import Header from '../components/Header/Header';
 import Login from '../components/Login/Login';
 import Perfil from '../components/Perfil/Perfil';
 import Usuario from '../components/Usuario/Usuario';
+import Feed from "../components/Feed/Feed";
 
 
 
@@ -19,6 +20,7 @@ const AppRoutes = () => {
                     <Route path="/cadastro" element={<Cadastro />}></Route>
                     <Route path="/perfil" element={<Perfil />}></Route>
                     <Route path="/usuario" element={<Usuario />}></Route>
+                    <Route path="/feed" element={<Feed />}></Route>
                     </Fragment>
                 </Routes>
         </Router>

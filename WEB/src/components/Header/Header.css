@@ -1,5 +1,5 @@
 #barra{
-
+    position: fixed;
     border-left: 1px solid #76BB4C;
     padding: 2px 10px;
 }
