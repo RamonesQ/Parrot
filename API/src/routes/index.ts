@@ -1,23 +1,25 @@
 import express from 'express';
 import PostController from '../domain/Posts/controllers/postController';
+import { PostValidation } from '../domain/Posts/validations';
 import { UsersController } from '../domain/Users/controllers/users.controller';
+import { UserValidation } from '../domain/Users/validations';
 const Auth = require('../middlewares/auth');
 
 
 export const routes = express.Router();
 
-routes.get('/user', UsersController.getAllUser);
-routes.get('/user/:id', UsersController.getUserById);
-routes.post('/user', UsersController.postUser);
+routes.get('/user', Auth, UsersController.getAllUser);
+routes.get('/user/:id', Auth, UserValidation.getOne, UsersController.getUserById);
+routes.post('/user', UserValidation.create, UsersController.postUser);
+routes.put('/user/:id', Auth, UserValidation.update, UsersController.putUser);
+routes.delete('/user/:id', Auth, UserValidation.destroy, UsersController.deleteUser)
+
+routes.get('/post', Auth, PostController.getAllPosts);
+routes.get('/post/:id', Auth, PostValidation.getOne, PostController.getPostsById);
+routes.post('/post', Auth, PostValidation.create, PostController.postPosts);
+routes.put('/post/:id', Auth, PostValidation.update, PostController.putPosts);
+routes.delete('/post/:id', Auth, PostValidation.destroy, PostController.deletePost);
+
 routes.post('/login', UsersController.login);
-routes.put('/user/:id', UsersController.putUser);
-routes.delete('/user/:id', UsersController.deleteUser)
-
-routes.get('/post', PostController.getAllPosts);
-routes.get('/post/:id', PostController.getPostsById);
-routes.post('/post', Auth, PostController.postPosts);
-routes.put('/post/:id', Auth, PostController.putPosts);
-routes.delete('/post/:id', Auth, PostController.deletePost);
-
 
 
