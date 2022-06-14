@@ -12,10 +12,8 @@ const AppRoutes = () => {
 
     return (
         <Router>
-            <div className="container">
-                <br />
                 <Routes>
-                <Fragment>
+            <Fragment>
                     <Route path="/header" element={<Header />}></Route>
                     <Route path="/" element={<Login />}></Route>
                     <Route path="/cadastro" element={<Cadastro />}></Route>
@@ -23,7 +21,6 @@ const AppRoutes = () => {
                     <Route path="/usuario" element={<Usuario />}></Route>
                     </Fragment>
                 </Routes>
-            </div>
         </Router>
     );
 }

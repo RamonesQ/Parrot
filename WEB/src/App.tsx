@@ -23,7 +23,8 @@ function App(): JSX.Element {
   }, [])
 
   return (
-  <AppRoutes />
+  
+    <AppRoutes />
   )
 }
 
