@@ -12,15 +12,14 @@ const AppRoutes = () => {
 
     return (
         <Router>
-                <Routes>
-            <Fragment>
-                    <Route path="/header" element={<Header />}></Route>
+            <Routes>
+                <Fragment>
                     <Route path="/" element={<Login />}></Route>
                     <Route path="/cadastro" element={<Cadastro />}></Route>
                     <Route path="/perfil" element={<Perfil />}></Route>
                     <Route path="/usuario" element={<Usuario />}></Route>
-                    </Fragment>
-                </Routes>
+                </Fragment>
+            </Routes>
         </Router>
     );
 }
