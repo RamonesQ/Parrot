@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Cadastro from '../components/Cadastro/Cadastro';
 import Header from '../components/Header/Header';
-import HomePage from '../components/HomePage/HomePage';
 import Login from '../components/Login/Login';
 import Perfil from '../components/Perfil/Perfil';
 

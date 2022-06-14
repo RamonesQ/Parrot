@@ -7,6 +7,8 @@ import Cadastro from './components/Cadastro/Cadastro'
 import Header from './components/Header/Header'
 import Usuario from './components/Usuario/Usuario'
 import { renderUsers } from './api'
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from './routes'
 
 interface User {
   name: string,
@@ -23,8 +25,9 @@ function App(): JSX.Element {
 
   return (
     <Fragment>
-      <Cadastro />
-      {/* <Login /> */}
+      {/* <Cadastro /> */}
+      <AppRoutes />
+      
       {/* <Perfil /> */}
       {/* <Header  /> */}
       {/* <Usuario /> */}
