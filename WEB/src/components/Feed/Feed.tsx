@@ -1,11 +1,11 @@
 import React from 'react'
-import { Navbar, Container,Card } from "react-bootstrap";
+import { Navbar, Container, Card } from "react-bootstrap";
 import LogoPerfil from "../../assets/Imagens/LogoPerfil.png"
 import Icone from "../../assets/Imagens/Icone.png"
-import  "./Perfil.css"
+import  "./Feed.css"
 import Header from '../Header/Header';
 
-const Perfil = () => {
+const Feed = () => {
   return (
     <div>
 
@@ -36,4 +36,4 @@ const Perfil = () => {
   )
 }
 
-export default Perfil
+export default Feed
