@@ -1,13 +1,19 @@
-body {
+/* body {
 
     background-image:  url(../../assets/Imagens/background.png);
     
+} */
+
+#teste{
+    z-index: -1;
+    opacity: 0.5;
 }
-div.container{
+div.box{
       
+    z-index: 3;
     border: 1px solid #C5C5C5;
-     margin-top: 5%;
-    background-color: white;
+     /* margin-top: 2%; */
+    /* background-color: white; */
     width: 487px;
     height: 642px;
     
@@ -18,6 +24,7 @@ div.container{
 }
 .login{
     margin-bottom: 8%;
+    margin-left: 43%;
 }
 .botao{
     margin-bottom: 10%;

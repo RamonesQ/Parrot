@@ -1,25 +1,31 @@
-body {
+ /* body {
 
     background-image: url(../../assets/Imagens/background.png);
 
+} */
+
+#teste{
+    z-index: -1;
+    opacity: 0.5;
 }
+div.cada {
 
-div.container {
-
+   
     border: 1px solid #C5C5C5;
-    margin-top: 2%;
+    /* margin-top: 2%; */
     background-color: white;
     width: 487px;
     height: 750px;
+    
 
-}
+} 
 
 .logo {
     margin-left: 30%;
     margin-top: 10%;
 }
 
-.login {
+div.login {
     margin-bottom: 8%;
     margin-left: 40%;
 }
