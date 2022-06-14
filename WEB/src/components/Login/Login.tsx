@@ -3,11 +3,11 @@ import { Fragment } from 'react';
 import { Button, Container, Form } from "react-bootstrap";
 import "./Login.css"
 import Logo from "../../assets/Imagens/logo.png"
+import Cadastro from '../Cadastro/Cadastro';
 
 
 
-
-const Login = () => {
+const Login = (): JSX.Element => {
   return (
     <div>
       <Container>
@@ -24,7 +24,7 @@ const Login = () => {
     Submit
   </Button>
 </Form>
-      <a id="cadastre" href='/'>Cadastre-se</a>
+      <a id="cadastre" href="">Cadastre-se</a>
             </Container>
       </div>
   )

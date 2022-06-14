@@ -14,7 +14,7 @@ const Cadastro = () => {
         <img className='logo' src={Logo} alt="Logo-Pagina-Login" />
         <h5 className='login'>CADASTRO</h5>
         <Form>
-  <Form.Group className="mb-3" controlId="formBasicEmail"style={{padding: "1% 15%"}}>
+  <Form.Group className="mb-3" controlId="formBasicEmail" style={{padding: "1% 15%"}}>
     <Form.Control type="email" placeholder="nome" style={{textAlign: "center" }}/>
      </Form.Group>
      <Form.Group className="mb-3" controlId="formBasicEmail"style={{padding: "1% 15%"}}>

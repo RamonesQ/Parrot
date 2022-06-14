@@ -1,28 +1,35 @@
 body {
 
-    background-image:  url(../../assets/Imagens/background.png);
-    
+    background-image: url(../../assets/Imagens/background.png);
+
 }
-div.container{
-      
+
+div.container {
+
     border: 1px solid #C5C5C5;
-     margin-top: 2%;
+    margin-top: 2%;
     background-color: white;
     width: 487px;
     height: 750px;
-    
-}
-.logo {
 
+}
+
+.logo {
+    margin-left: 30%;
     margin-top: 10%;
 }
-.login{
+
+.login {
     margin-bottom: 8%;
+    margin-left: 40%;
 }
-.botao{
+
+.botao {
     margin-bottom: 10%;
+    margin-left: 15%;
 }
-#cadastre{
+
+#cadastre {
     text-decoration: none;
-    color:  #555555;
+    color: #555555;
 }

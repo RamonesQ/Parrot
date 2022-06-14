@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    font-family: 'Questrial', sans-serif;
+    color: #d1cfcf;
+    color:     #6033AA
+}
+.nav{
+    width: 100%;
+   
+    margin-bottom: 100%;
+}
+.first{
+    
+    margin-left: 325px;
+    width: 700px;
+    height: 300px;
+    border: 1px solid #d1cfcf;
+   }
+.second{
+    margin-left: 325px;
+    
+    width: 700px;
+    height: 758px;
+    border: 1px solid #d1cfcf;
+   
+
+}
+div.second {
+    
+    margin-bottom: 50px;
+   
+
+}
