@@ -29,7 +29,6 @@
     "@faker-js/faker": "^7.2.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.12",
-    "@types/jest": "^28.1.1",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/supertest": "^2.0.12",
     "babel": "^6.23.0",
