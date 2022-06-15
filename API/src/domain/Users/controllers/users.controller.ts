@@ -1,9 +1,8 @@
 import { Request, Response } from "express";
 import { relationship } from "../../../infrastructure/database/model/";
 import bcrypt from 'bcryptjs'
-import jwt from "jsonwebtoken";
 require('dotenv').config();
-import bcryptjs from "bcryptjs";
+
 import { Op } from 'sequelize';
 
 
@@ -106,29 +105,5 @@ export const UsersController = {
 
     },
 
-    async login(req: Request, res: Response) {
-        const { email, password } = req.body;
-
-        const userLogin = await relationship.User.findOne({
-            where: {
-                email
-            }
-        })
-        if (!userLogin) {
-            return res.status(401).json("Usuário ou Senha invalido, verique e tente novamente");
-        }
-
-        if (!bcryptjs.compareSync(password, userLogin.password)) {
-            return res.status(401).json("Senha invalido, verique e tente novamente");
-        }
-        const key = 'abc'
-        const token = jwt.sign({
-            idUser: userLogin.idUser,
-            nome: userLogin.name,
-            email: userLogin.email
-        }, key);
-
-        return res.json(token);
-
-    }
+   
 }
