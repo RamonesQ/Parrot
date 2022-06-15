@@ -37,6 +37,7 @@ const AppRoutes = () => {
                         <Route path="/" element={<PrivateRoute><Feed /></PrivateRoute>}></Route>
                         <Route path="/perfil" element={<PrivateRoute><Perfil /></PrivateRoute>}></Route>
                         <Route path="/usuario" element={<PrivateRoute><Usuario /></PrivateRoute>}></Route>
+                        <Route path="/feed" element={<PrivateRoute><Feed /></PrivateRoute>}></Route>
                     </Fragment>
                 </Routes>
             </AuthProvider>

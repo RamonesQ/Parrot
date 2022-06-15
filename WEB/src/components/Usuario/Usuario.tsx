@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navbar, Container,Card } from "react-bootstrap";
 import LogoPerfil from "../../assets/Imagens/LogoPerfil.png"
+import Icone from "../../assets/Imagens/Icone.png"
 import  "./Usuario.css"
 import Header from '../Header/Header';
 

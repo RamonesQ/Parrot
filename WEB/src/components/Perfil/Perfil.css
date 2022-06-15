@@ -1,4 +1,53 @@
+div.users{
 
+    display: flex;
+    align-items: center;
+    justify-content: first baseline;
+}
+div.usertext p{
+
+    margin: 0px;
+    margin-left: 2rem;
+}
+div.editar a{
+    text-decoration: none;
+    border: 1px solid #76BB4C;
+    margin-left: 5rem;
+    padding: 2px 20px;
+    background: #76BB4C;
+    color: white;
+    border-radius: 30px ;
+    
+}
+div.nada{
+    text-align: center;
+    color: #919191;
+}
+div.icone{
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body {
+    margin: 0;
+    font-family: 'Questrial', sans-serif;
+    color: #d1cfcf;
+    color:     #6033AA
+}
 .nav{
     width: 100%;
    
@@ -25,4 +74,4 @@ div.second {
     margin-bottom: 50px;
    
 
-}
+} */
