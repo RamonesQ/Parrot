@@ -4,12 +4,8 @@ import Logo from "../../assets/Imagens/logo.png"
 import Background from "../../assets/Imagens/background.png"
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-<<<<<<< HEAD
 import axios from 'axios';
 import Api from "../../api"
-=======
-import axios from "axios";
->>>>>>> a87772c41c025ffd02bd34cdb7a444811ab09250
 
 
 
