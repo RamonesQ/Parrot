@@ -121,12 +121,12 @@ export const UsersController = {
         if (!bcryptjs.compareSync(password, userLogin.password)) {
             return res.status(401).json("Senha invalido, verique e tente novamente");
         }
-        const key = 'abc'
+        const key = process.env.key
         const token = jwt.sign({
             idUser: userLogin.idUser,
             nome: userLogin.name,
             email: userLogin.email
-        }, key);
+        }, key!);
 
         return res.json(token);
 
