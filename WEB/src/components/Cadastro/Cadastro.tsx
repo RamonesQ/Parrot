@@ -7,6 +7,8 @@ import Background from "../../assets/Imagens/background.png"
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import Api from "../../api"
+
 
 
 const Cadastro = () => {
@@ -15,8 +17,8 @@ const Cadastro = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
   const onSubmit = async data => {
-    const response = await axios.post('http://localhost:4000/user', data);
-    console.log(response.data);
+     await Api.post("/user", data);
+    
 
     navigate('/');
   }
