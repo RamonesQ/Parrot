@@ -1,4 +1,5 @@
 import express from 'express';
+import { AuthControler } from '../domain/Auth/authcontroller';
 import PostController from '../domain/Posts/controllers/postController';
 import { PostValidation } from '../domain/Posts/validations';
 import { UsersController } from '../domain/Users/controllers/users.controller';
@@ -20,6 +21,6 @@ routes.post('/post', Auth, PostValidation.create, PostController.postPosts);
 routes.put('/post/:id', Auth, PostValidation.update, PostController.putPosts);
 routes.delete('/post/:id', Auth, PostValidation.destroy, PostController.deletePost);
 
-routes.post('/login', UsersController.login);
+routes.post('/login', AuthControler.login);
 
 
