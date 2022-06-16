@@ -2,7 +2,15 @@
 
 const { faker } = require('@faker-js/faker');
 
-let seeders = [];
+let seeders = [{
+  name: 'Sindico',
+  email: 'Sindico.admin@email.com',
+  apartment: 66,
+  password: 'adminsindic',
+  adm: 1,
+  createdAt: new Date(),
+  updatedAt: new Date()
+}];
 
 for (let i = 0; i < 10; i++) {
   seeders.push(
@@ -17,8 +25,6 @@ for (let i = 0; i < 10; i++) {
     }
   )
 }
-
-
 
 module.exports = {
   async up(queryInterface, Sequelize) {
