@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navbar, Container, Card } from "react-bootstrap";
 import LogoPerfil from "../../assets/Imagens/LogoPerfil.png"
 import "./Perfil.css"
 import Header from '../Header/Header';
 import Person from "../../assets/Imagens/Person.png"
 import Icone from "../../assets/Imagens/icone.png"
+import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const Perfil = () => {
+  const { idUser } = useParams();
+  const [user, setUser] = useState([])
+
+  useEffect(() => {
+    (async () => {
+      const response = await axios.get(`http://localhost:4000/user/2`);
+      setUser(response.data)
+    })();
+
+  }, []);
+
   return (
     <div>
 
@@ -20,26 +33,28 @@ const Perfil = () => {
             {/* <Card.Title>Card Title</Card.Title> */}
             <div className='users'>
               <div className='usertext'>
-              <p>Nome Sobrenome</p>
-                <p>Ap 94 </p>
-                <p> user@gmail.com</p>
+                <p>{user.name}</p>
+                <p>Ap {user.apartment} </p>
+                <p> {user.email}</p>
               </div>
               <div className='editar'>
-              <a href="">editar</a>
-              </div>  
+                <Link to={`/editar/${user.idUser}`} className="btn btn-primary">
+                  <i className="fa fa-edit">Editar</i>
+                </Link>
+              </div>
             </div>
 
           </div>
         </Card.Body>
       </Card>
       <Card style={{ width: '30rem', marginLeft: "35%", padding: "10% 5% 10%" }}>
-        
+
         <div className='nada'>
-        <p>Você ainda não fez nenhuma publicação :(</p>
+          <p>Você ainda não fez nenhuma publicação :(</p>
         </div>
 
         <div className='icone'>
-          <img src={Icone}alt="Icone" />
+          <img src={Icone} alt="Icone" />
         </div>
         {/* <Card.Body>
           <Card.Title>Card Title</Card.Title>
