@@ -5,14 +5,12 @@ const PostController = {
 
     async getAllPosts(req: Request, res: Response) {
         try {
-            const { page = 1, limit = 5 }: any = req.query
-            const offset = limit * (page - 1);
-            let filter = {
-                limit,
-                offset,
+
+
+
+            const response = await relationship.Post.findAll({
                 include: relationship.User,
-            }
-            const response = await relationship.Post.findAll(filter);
+            });
             return res.status(200).json(response);
 
         } catch (error) {

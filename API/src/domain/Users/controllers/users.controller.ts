@@ -10,23 +10,11 @@ import { Op } from 'sequelize';
 export const UsersController = {
     async getAllUser(req: Request, res: Response) {
         try {
-            const { termo, page = 1, limit = 5 }: any = req.query;
-            const offset = limit * (page - 1);
-            let filter = {
-                limit,
-                offset,
+                
+            const getUsers = await relationship.User.findAll({
                 include: relationship.Post,
-                attributes: ['idUser', 'name', 'email', 'apartment', 'createdAt', 'updatedAt'],
-            };
-
-            if (termo) {
-                Object.assign(filter, {
-                    where: {
-                        name: { [Op.substring]: termo }
-                    }
-                })
-            }
-            const getUsers = await relationship.User.findAll(filter);
+                attributes: ['idUser', 'name', 'email', 'apartment', 'createdAt', 'updatedAt']
+            });
             return res.status(200).json(getUsers);
         }
         catch (error) {
