@@ -1,15 +1,14 @@
-import { Api } from "./api";
+import { api } from './api';
 
-interface PostPayload{
-    
-
-};
-
-
-export function listarFeeds(){
-    return Api.get("/post")
+export interface PostPayload {
+  content: string;
+  user_idUser: number;
 }
 
-export function PublicarPost(payload: PostPayload){
-    return Api.post("/post", payload)
+export function listarFeeds() {
+  return api.get('/post'); 
+}
+
+export function PublicarPost(payload: PostPayload) {
+  return api.post('/post', payload);
 }
