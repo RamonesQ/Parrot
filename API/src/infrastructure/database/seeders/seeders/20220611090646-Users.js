@@ -5,7 +5,7 @@ const { faker } = require('@faker-js/faker');
 let seeders = [{
   name: 'Sindico',
   email: 'Sindico.admin@email.com',
-  apartment: 1,
+  apartment: 66,
   password: 'adminsindic',
   adm: 1,
   createdAt: new Date(),
@@ -19,7 +19,7 @@ for (let i = 0; i < 10; i++) {
       name: faker.name.firstName(),
       email: faker.internet.email(),
       apartment: faker.datatype.number({  
-        'min': 2,
+        'min': 1,
         'max': 299
       }),
       password: faker.internet.password(7),
