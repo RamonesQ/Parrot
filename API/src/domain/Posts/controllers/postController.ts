@@ -1,13 +1,11 @@
 import { relationship } from "../../../infrastructure/database/model/";
 import { Request, Response } from "express";
+import { Post } from "../../../infrastructure/database/model/posts";
 
 const PostController = {
 
     async getAllPosts(req: Request, res: Response) {
         try {
-
-
-
             const response = await relationship.Post.findAll({
                 include: relationship.User,
             });
@@ -90,7 +88,15 @@ const PostController = {
             return res.status(500).json(error);
 
         }
-    }
+    },
+    async contarPost(req: Request, res: Response) {
+        try {
+          const contadorPost = await Post.count();
+          return res.status(200).json(` ${contadorPost}`);
+        } catch (error) {
+          return res.status(500).json(error);
+        }
+      }
 }
 
 
