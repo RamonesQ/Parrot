@@ -1,5 +1,33 @@
 .titulo-card{
     color: #76BB4C;
-    font-size: 16px;
+   
 
 }
+
+div.teste {
+    display: flex;
+    gap: 20%;
+    align-items: center;
+}
+
+#button-feed {
+    border-radius: 30px ;
+    background-color: #6033AA;
+    color: white ;
+    border: none;
+    padding: 0rem 4rem;
+    margin-left: 25%;
+    
+}
+
+.feedBody{
+    display: flex;
+    gap: 10%;
+}
+
+.textoFeed{
+    font-size: 16px;
+}
+
+
+

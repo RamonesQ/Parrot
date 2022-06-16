@@ -6,7 +6,7 @@ import  "./Feed.css"
 import Header from '../Header/Header';
 import { listarFeeds } from '../../services/feed';
 import { PublicarPost } from '../../services/feed';
-
+import Person from "../../assets/Imagens/Person.png";
 
 interface PostDetails{
   createdAt: string;
@@ -60,33 +60,46 @@ const Feed = () => {
   
     <Header />
     
-      <Card style={{ width: '30rem', marginLeft: "35%", marginTop: "0%" }}>
-    <Card.Body>
-    <Form onSubmit={Post}>
-  <Form.Group className="mb-3" controlId="formBasicEmail" >
-    <Form.Label></Form.Label>
-    <Form.Control type="text" placeholder=""  value={publication} onChange={(event) => setPublication(event.target.value)}/>
-   
-  </Form.Group>
-
-  
-  <Button variant="primary" type="submit" >
-    Submit
-  </Button>
-  </Form>
+    <Card style={{ width: '30rem', marginLeft: "35%", marginTop: "0%" }}>
+      <Card.Body>
+      <div className="teste">
+      <div className="img-feed">
+      <img src={Person}></img>
+      </div>
+      <div className="form-feed">
+        <Form onSubmit={Post}>
+          <Form.Group className="mb-3" controlId="formBasicEmail"  >
+      
+          
+          <Form.Control style={{padding: '', marginRight:'40px' }} type="text" placeholder=""  value={publication} onChange={(event) => setPublication(event.target.value)}/>
+      
+          </Form.Group>
+      
+      
+          <button id="button-feed" type="submit">publicar</button>
+        </Form>
+      </div>
+      </div>
       </Card.Body>
-</Card>
+  </Card>
   {lista.map((post: PostDetails)=> (
-    <Card style={{ width: '30rem', marginLeft: "35%", padding: "5% 5% 5%" }}>
+    <Card style={{ width: '30rem', marginLeft: "35%", padding: "" }}>
     <Card.Body>
-     
+     <div className="feedBody">
+      <div className="img-feed-body">
+      <img src={Person}></img>
+      </div>
+      <div className="textoFeed">
       <Card.Title className="titulo-card">{post.User.name} - apê {post.User.apartment}</Card.Title>
       <Card.Subtitle className="mb-2 text-muted">{post.createdAt}</Card.Subtitle>
       <Card.Text >
         {post.content}
       </Card.Text>
+      </div>
+      </div>
         </Card.Body>
     </Card>
+
   ))}
 
         
