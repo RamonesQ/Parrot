@@ -6,45 +6,33 @@ describe('metodo getAllUser()', () => {
     test('deve ser do type function', () => {
         expect(typeof UsersController.getAllUser).toBe('function')
     })
+    test('deve ser do type function', () => {
+        expect(typeof UsersController.getUserById).toBe('function')
+    })
+    test('deve ser do type function', () => {
+        expect(typeof UsersController.deleteUser).toBe('function')
+    })
+    test('deve ser do type function', () => {
+        expect(typeof UsersController.postUser).toBe('function')
+    })
+    test('deve ser do type function', () => {
+        expect(typeof UsersController.putUser).toBe('function')
+    })
 })
 
 describe('No controller, ao executar função', () => {
-
-    describe('create', () => {
+    
+describe('create', () => {
         test('em caso de sucesso, deve retornar 201', async () => {
-            const response = await supertest(app)
-                .post('/users')
+            const res = await supertest(app)
+                .post('/user')
                 .send({
                     name: "meu nome",
-                    email: "meu@email.com",
+                    email: "me@email.com",
                     apartment: 2,
                     password: "senha"
                 })
 
-            expect(response.status).toBe(201)
+            expect(res.status).toBe(201)
         })
-
-        test('em caso de sucesso, retornar response do request', async () => {
-            const response = await supertest(app)
-                .post('/psicologos')
-                .send({
-                    "name": "Test",
-                    "email": "abr2@gmail.com",
-                    "apartment": 2,
-                    "password": "joi"
-                })
-            expect(response.body).toEqual(
-                expect.objectContaining({
-                    "name": "Test",
-                    "email": "abr2@gmail.com",
-                    "apartment": 2
-                })
-            )
-        })
-        test('em caso de sucesso, deve retornar o usuaraio', async () => {
-            const resposta = await (app)
-                .post('/user/1')
-            expect(resposta.status).toBe(201)
-        })
-    })
-})
+})})
