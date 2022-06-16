@@ -22,5 +22,3 @@ routes.put('/post/:id', PostValidation.update, PostController.putPosts);
 routes.delete('/post/:id', PostValidation.destroy, PostController.deletePost);
 
 routes.post('/login', AuthControler.login);
-
-
