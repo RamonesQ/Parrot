@@ -31,18 +31,23 @@ const Cadastro = () => {
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className="mb-3" controlId="formBasicEmail" style={{ padding: "1% 15%" }}>
             <Form.Control name="name" {...register('name', { required: true })} type="text" placeholder="nome" style={{ textAlign: "center" }} />
+            <small className="form-text text-danger">{errors.name && 'Nome inválido'}</small>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail" style={{ padding: "1% 15%" }}>
             <Form.Control name="email" {...register('email', { required: true })} type="email" placeholder="email" style={{ textAlign: "center" }} />
+            <small className="form-text text-danger">{errors.email && 'Email inválido'}</small>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail" style={{ padding: "1% 15%" }}>
             <Form.Control name="password" {...register('password', { required: true })} type="password" placeholder="senha" style={{ textAlign: "center" }} />
+            <small className="form-text text-danger">{errors.password && 'Password inválido'}</small>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail" style={{ padding: "1% 15%" }}>
             <Form.Control name="password" type="password" placeholder="confirmar senha" style={{ textAlign: "center" }} />
+            <small className="form-text text-danger">{errors.password && 'Password inválido'}</small>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail" style={{ padding: "1% 15%" }}>
             <Form.Control name="apartment" {...register('apartment', { required: true })} type="number" placeholder="unidade/apartamento" style={{ textAlign: "center" }} />
+            <small className="form-text text-danger">{errors.apartment && 'Apartment inválido'}</small>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword" style={{ padding: "1% 15%" }}>
             <Form.Control type="password" placeholder="link da foto" style={{ textAlign: "center" }} />
