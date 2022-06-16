@@ -9,7 +9,6 @@ interface AuthRequest extends Request{
 export const UsersController = {
     async getAllUser(req: AuthRequest, res: Response) {
         try {
-                console.log(req.auth)
             const getUsers = await relationship.User.findAll({
                 include: relationship.Post,
                 attributes: ['idUser', 'name', 'email', 'apartment', 'createdAt', 'updatedAt']
