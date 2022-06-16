@@ -1,10 +1,10 @@
 import { request } from "express"
 import supertest from "supertest"
 import app from "../index"
-const { faker } = require("@faker-js/faker")
 
-describe('Teste de rotas ()', () => {
-    test('Recuperando todos os usuarios com get /users', async () => {
+
+describe('Teste de rotas get user ()', () => {
+    test('Recuperando todos os usuarios com get /user', async () => {
         const res = await supertest(app).get('/user')
         console.log(res.body)
         expect(res.status).toBe(200)
