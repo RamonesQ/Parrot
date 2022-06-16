@@ -2,15 +2,14 @@ import { Request, Response } from "express";
 import { relationship } from "../../../infrastructure/database/model/";
 import bcrypt from 'bcryptjs'
 require('dotenv').config();
-
-import { Op } from 'sequelize';
-
-
+interface AuthRequest extends Request{
+    auth: any
+  }
 
 export const UsersController = {
-    async getAllUser(req: Request, res: Response) {
+    async getAllUser(req: AuthRequest, res: Response) {
         try {
-                
+                console.log(req.auth)
             const getUsers = await relationship.User.findAll({
                 include: relationship.Post,
                 attributes: ['idUser', 'name', 'email', 'apartment', 'createdAt', 'updatedAt']
@@ -21,7 +20,7 @@ export const UsersController = {
             return res.status(500).json(error);
         };
     },
-    async getUserById(req: Request, res: Response) {
+    async getUserById(req: AuthRequest, res: Response) {
         try {
             const { id } = req.params;
             const getUser = await relationship.User.findByPk(id, {
@@ -36,7 +35,7 @@ export const UsersController = {
             return res.status(500).json(error);
         };
     },
-    async postUser(req: Request, res: Response) {
+    async postUser(req: AuthRequest, res: Response) {
         try {
             const { name, email, apartment, password } = req.body
             const existingUser =
@@ -57,7 +56,7 @@ export const UsersController = {
 
         }
     },
-    async putUser(req: Request, res: Response) {
+    async putUser(req: AuthRequest, res: Response) {
         try {
             const { id } = req.params;
             const { name, email, apartment, password } = req.body
@@ -79,7 +78,7 @@ export const UsersController = {
 
         }
     },
-    async deleteUser(req: Request, res: Response) {
+    async deleteUser(req: AuthRequest, res: Response) {
         try {
             const { id } = req.params;
             const del = await relationship.User.destroy({
