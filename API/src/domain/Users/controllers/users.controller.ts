@@ -6,6 +6,7 @@ require('dotenv').config();
 import { Op } from 'sequelize';
 
 
+
 export const UsersController = {
     async getAllUser(req: Request, res: Response) {
         try {
@@ -14,6 +15,7 @@ export const UsersController = {
             let filter = {
                 limit,
                 offset,
+                include: relationship.Post,
                 attributes: ['idUser', 'name', 'email', 'apartment', 'createdAt', 'updatedAt'],
             };
 
@@ -35,6 +37,7 @@ export const UsersController = {
         try {
             const { id } = req.params;
             const getUser = await relationship.User.findByPk(id, {
+                include: relationship.Post,
                 attributes: ['idUser', 'name', 'email', 'apartment', 'createdAt', 'updatedAt']
             });
 

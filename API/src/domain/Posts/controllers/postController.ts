@@ -9,7 +9,8 @@ const PostController = {
             const offset = limit * (page - 1);
             let filter = {
                 limit,
-                offset
+                offset,
+                include: relationship.User,
             }
             const response = await relationship.Post.findAll(filter);
             return res.status(200).json(response);
@@ -22,7 +23,9 @@ const PostController = {
     async getPostsById(req: Request, res: Response) {
         try {
             const { id } = req.params;
-            const postId = await relationship.Post.findByPk(id);
+            const postId = await relationship.Post.findByPk(id, {
+                include: relationship.User,
+            });
 
             if (postId == null) {
                 return res.status(404).json('Id não encontrado');
