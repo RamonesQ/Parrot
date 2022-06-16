@@ -46,7 +46,7 @@ describe('Teste de rotas get user ()', () => {
         expect(res.status).toBe(200)
     })
 })
-describe('Atualziando user', () => {
+describe('Atualizando user', () => {
     test('em caso de sucesso, deve retornar 201', async () => {
         const res = await supertest(app)
         .put('/users/5')
