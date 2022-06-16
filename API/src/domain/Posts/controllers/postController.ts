@@ -1,13 +1,13 @@
 import { relationship } from "../../../infrastructure/database/model/";
 import { Request, Response } from "express";
 import { Post } from "../../../infrastructure/database/model/posts";
-interface AuthRequest extends Request{
-    auth: any
-  }
+// interface AuthRequest extends Request{
+//     auth: any
+//   }
 
 const PostController = {
 
-    async getAllPosts(req: AuthRequest, res: Response) {
+    async getAllPosts(req: Request, res: Response) {
         try {
             const response = await relationship.Post.findAll({
                 include: relationship.User,
@@ -19,7 +19,7 @@ const PostController = {
 
         }
     },
-    async getPostsById(req: AuthRequest, res: Response) {
+    async getPostsById(req: Request, res: Response) {
         try {
             const { id } = req.params;
             const postId = await relationship.Post.findByPk(id, {
@@ -38,7 +38,7 @@ const PostController = {
         }
     },
 
-    async postPosts(req: AuthRequest, res: Response) {
+    async postPosts(req: Request, res: Response) {
         try {
             const { user_idUser, content } = req.body
             const post = await relationship.Post.create({
@@ -52,7 +52,7 @@ const PostController = {
 
         }
     },
-    async putPosts(req: AuthRequest, res: Response) {
+    async putPosts(req: Request, res: Response) {
         try {
             const { id } = req.params;
             const { content } = req.body
@@ -76,7 +76,7 @@ const PostController = {
         }
     },
 
-    async deletePost(req: AuthRequest, res: Response) {
+    async deletePost(req: Request, res: Response) {
         try {
             const { id } = req.params;
 
@@ -92,7 +92,7 @@ const PostController = {
 
         }
     },
-    async contarPost(req: AuthRequest, res: Response) {
+    async contarPost(req: Request, res: Response) {
         try {
           const contadorPost = await Post.count();
           return res.status(200).json(` ${contadorPost}`);

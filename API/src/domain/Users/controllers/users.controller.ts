@@ -2,12 +2,12 @@ import { Request, Response } from "express";
 import { relationship } from "../../../infrastructure/database/model/";
 import bcrypt from 'bcryptjs'
 require('dotenv').config();
-interface AuthRequest extends Request{
-    auth: any
-  }
+// interface AuthRequest extends Request{
+//     auth: any
+//   }
 
 export const UsersController = {
-    async getAllUser(req: AuthRequest, res: Response) {
+    async getAllUser(req: Request, res: Response) {
         try {
             const getUsers = await relationship.User.findAll({
                 include: relationship.Post,
@@ -19,7 +19,7 @@ export const UsersController = {
             return res.status(500).json(error);
         };
     },
-    async getUserById(req: AuthRequest, res: Response) {
+    async getUserById(req: Request, res: Response) {
         try {
             const { id } = req.params;
             const getUser = await relationship.User.findByPk(id, {
@@ -34,7 +34,7 @@ export const UsersController = {
             return res.status(500).json(error);
         };
     },
-    async postUser(req: AuthRequest, res: Response) {
+    async postUser(req: Request, res: Response) {
         try {
             const { name, email, apartment, password } = req.body
             const existingUser =
@@ -55,7 +55,7 @@ export const UsersController = {
 
         }
     },
-    async putUser(req: AuthRequest, res: Response) {
+    async putUser(req: Request, res: Response) {
         try {
             const { id } = req.params;
             const { name, email, apartment, password } = req.body
@@ -77,7 +77,7 @@ export const UsersController = {
 
         }
     },
-    async deleteUser(req: AuthRequest, res: Response) {
+    async deleteUser(req: Request, res: Response) {
         try {
             const { id } = req.params;
             const del = await relationship.User.destroy({
