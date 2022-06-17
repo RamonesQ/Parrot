@@ -1,6 +1,9 @@
 import { relationship } from "../../../infrastructure/database/model/";
 import { Request, Response } from "express";
 import { Post } from "../../../infrastructure/database/model/posts";
+// interface AuthRequest extends Request{
+//     auth: any
+//   }
 
 const PostController = {
 

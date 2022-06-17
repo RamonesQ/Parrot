@@ -2,7 +2,15 @@
 
 const { faker } = require('@faker-js/faker');
 
-let seeders = [];
+let seeders = [{
+  name: 'Sindico',
+  email: 'Sindico.admin@email.com',
+  apartment: 66,
+  password: 'adminsindic',
+  adm: 1,
+  createdAt: new Date(),
+  updatedAt: new Date()
+}];
 
 for (let i = 0; i < 10; i++) {
   seeders.push(
@@ -10,15 +18,17 @@ for (let i = 0; i < 10; i++) {
 
       name: faker.name.firstName(),
       email: faker.internet.email(),
-      apartment: 1,
-      password: '123456',
+      apartment: faker.datatype.number({  
+        'min': 1,
+        'max': 299
+      }),
+      password: faker.internet.password(7),
+      adm:0,
       createdAt: new Date(),
       updatedAt: new Date()
     }
   )
 }
-
-
 
 module.exports = {
   async up(queryInterface, Sequelize) {
