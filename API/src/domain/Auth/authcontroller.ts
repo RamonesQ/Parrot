@@ -14,6 +14,8 @@ export const AuthControler = {
                 email,
             }
         })
+
+
         if (!userLogin) {
             return res.status(401).json("Usuário ou Senha invalido, verique e tente novamente");
         }
@@ -23,16 +25,18 @@ export const AuthControler = {
         }
 
 
-        
-        const { idUser, name } = userLogin
+
+        const { idUser, name, apartment } = userLogin
 
 
         return res.json({
             user: {
                 idUser,
-                email
+                email,
+                name,
+                apartment,
             },
-            token: jwt.sign({ idUser, name, email }, process.env.key!,)
+            token: jwt.sign({ idUser, name, email, apartment }, process.env.key!,)
         });
     }
 }
