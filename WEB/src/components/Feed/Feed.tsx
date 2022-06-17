@@ -55,7 +55,7 @@ const Feed = () => {
       loadAllPosts();
 
     } catch (error) {
-      console.error('Erro ao cadastrar um novo Post')
+      console.error(error)
     }
   };
 
