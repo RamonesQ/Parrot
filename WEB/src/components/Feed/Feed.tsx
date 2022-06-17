@@ -7,6 +7,7 @@ import Header from '../Header/Header';
 import { listarFeeds, PostPayload } from '../../services/feed';
 import { PublicarPost } from '../../services/feed';
 import Person from '../../assets/Imagens/Person.png';
+import moment from 'moment';
 
 interface PostDetails {
   createdAt: string;
@@ -100,7 +101,7 @@ const Feed = () => {
                   {post.User.name} - apê {post.User.apartment}
                 </Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  {post.createdAt}
+                  {moment(post.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
                 </Card.Subtitle>
                 <Card.Text>{post.content}</Card.Text>
               </div>
