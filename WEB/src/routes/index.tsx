@@ -6,8 +6,8 @@ import Perfil from '../components/Perfil/Perfil';
 import Usuario from '../components/Usuario/Usuario';
 import Feed from "../components/Feed/Feed";
 import { AuthContext, AuthProvider } from '../contexts/auth';
-import Editar from '../components/Editar/Editar';
 
+import Editar from '../components/Editar/Editar';
 
 
 

@@ -1,10 +1,10 @@
 import { Post } from "./posts";
 import { User } from "./users";
 
-Post.belongsTo(User, {
+Post.belongsTo(User,{
     foreignKey: 'user_idUser'
 })
-User.hasMany(Post, {
+User.hasMany(Post,{
     foreignKey: 'user_idUser'
 })
 

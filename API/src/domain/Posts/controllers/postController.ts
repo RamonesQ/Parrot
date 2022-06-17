@@ -85,7 +85,8 @@ const PostController = {
                     idPost: id
                 }
             })
-            if (!exclude) return res.status(404).json("Id não encontrado");
+            if (!exclude) return res.status(404)
+            .json("Id não encontrado");
             return res.status(204);
         } catch (error) {
             return res.status(500).json(error);
