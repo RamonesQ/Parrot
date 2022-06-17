@@ -16,6 +16,7 @@ module.exports = {
           },
           key: 'idUser'
         },
+        onDelete: 'cascade',
         allowNull: false
       },
       content: {
