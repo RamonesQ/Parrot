@@ -21,9 +21,10 @@ export const AuthControler = {
         if (!bcryptjs.compareSync(password, userLogin.password)) {
             return res.status(401).json("Senha invalido, verique e tente novamente");
         }
-        const key = process.env.key
 
-        const { idUser } = userLogin
+
+        
+        const { idUser, name } = userLogin
 
 
         return res.json({
@@ -31,10 +32,7 @@ export const AuthControler = {
                 idUser,
                 email
             },
-            token: jwt.sign({ idUser }, key!, {
-
-            })
+            token: jwt.sign({ idUser, name, email }, process.env.key!,)
         });
-
     }
 }
