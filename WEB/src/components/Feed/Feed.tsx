@@ -101,7 +101,7 @@ const Feed = () => {
                   {post.User.name} - apê {post.User.apartment}
                 </Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  {moment(post.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+                  {moment(post.createdAt).format('D/MM/YYYY, h:mm:ss ')}
                 </Card.Subtitle>
                 <Card.Text>{post.content}</Card.Text>
               </div>
