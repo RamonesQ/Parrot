@@ -2,9 +2,7 @@ import { Request, Response } from "express";
 import { relationship } from "../../../infrastructure/database/model/";
 import bcrypt from 'bcryptjs'
 require('dotenv').config();
-// interface AuthRequest extends Request{
-//     auth: any
-//   }
+
 
 export const UsersController = {
     async getAllUser(req: Request, res: Response) {
