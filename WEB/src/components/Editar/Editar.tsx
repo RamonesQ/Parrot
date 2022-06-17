@@ -2,24 +2,37 @@ import { Button, Container, Form } from "react-bootstrap";
 import "./Editar.css"
 import Logo from "../../assets/Imagens/logo.png"
 import Background from "../../assets/Imagens/background.png"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Api from "../../api"
+import { useEffect, useState } from "react";
 
 
 
 const Editar = () => {
 
+  const user = JSON.parse(localStorage.getItem('user') as any);
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { idUser } = useParams();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const [client, setClient] = useState();
   const navigate = useNavigate();
-  const onSubmit = async data => {
-     await Api.post("/user", data);
-    
 
-    navigate('/');
-  }
+  useEffect(() => {
+      async function getsClients() {
+          const response = await Api.get('/user');
+          setClient(response.data)
+
+      }
+
+  }, [idUser]);
+
+  const onSubmit = async data => {
+      Api.put(`/user/${user.idUser}`, data)
+      navigate("/");
+  };
+
 
   return (
     <div>
