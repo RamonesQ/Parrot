@@ -57,18 +57,19 @@ export const UsersController = {
         try {
             const { id } = req.params;
             const { name, email, apartment, password } = req.body
+            const newSenha = bcrypt.hashSync(password, 10)
             const update = await relationship.User.update({
                 name,
                 email,
                 apartment,
-                password
+                password: newSenha
             }, {
                 where: {
                     idUser: id
                 }
             }
             );
-            if (update == 0) return res.status(400).json("Id invalido");
+            if (update == 0) return res.status(404).json("Id invalido");
             return res.status(200).json("Usuario Atualizado");
         } catch (error) {
             return res.status(500).json(error)
