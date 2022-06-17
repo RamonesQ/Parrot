@@ -12,7 +12,7 @@ export const routes = express.Router();
 routes.get('/user', Auth, UsersController.getAllUser);
 routes.get('/user/:id', Auth, UserValidation.getOne, UsersController.getUserById);
 routes.post('/user', UserValidation.create, UsersController.postUser);
-routes.put('/user/:id', Auth, UserValidation.update, UsersController.putUser);
+routes.put('/user/:id', UserValidation.update, UsersController.putUser);
 routes.delete('/user/:id', Auth, UserValidation.destroy, UsersController.deleteUser)
 
 routes.get('/post', Auth, PostController.getAllPosts);
