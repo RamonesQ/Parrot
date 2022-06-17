@@ -1,0 +1,10 @@
+DB_USER=root
+DB_PASSWORD=12345678
+DB_NAME=parrot
+DB_DIALECT=mysql
+DB_HOST=localhost
+DB_PORT = 3306
+
+
+key=handsOnParrot
+expiresIn=1d
