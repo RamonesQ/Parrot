@@ -7,7 +7,7 @@ import Usuario from '../components/Usuario/Usuario';
 import Feed from "../components/Feed/Feed";
 import { AuthContext, AuthProvider } from '../contexts/auth';
 import Editar from '../components/Editar/Editar';
-import Perfil1 from '../components/perfil1/perfil1';
+
 
 
 
@@ -39,7 +39,6 @@ const AppRoutes = () => {
                         <Route path="/editar/:idUser" element={<Editar />}></Route>
                         <Route path="/feed" element={<PrivateRoute><Feed /></PrivateRoute>}></Route>
                         <Route path="/" element={<PrivateRoute><Perfil /></PrivateRoute>}></Route>
-                        <Route path="/perfil" element={<PrivateRoute><Perfil1 /></PrivateRoute>}></Route>
                         <Route path="/usuario" element={<PrivateRoute><Usuario /></PrivateRoute>}></Route>
                     </Fragment>
                 </Routes>

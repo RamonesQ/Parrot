@@ -65,7 +65,7 @@ const Feed = () => {
 
       <Card style={{ width: '30rem', marginLeft: '35%', marginTop: '0%' }}>
         <Card.Body>
-          <div className="teste">
+          <div className="testl">
             <div className="img-feed">
               <img src={Person}></img>
             </div>
