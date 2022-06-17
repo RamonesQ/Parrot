@@ -1,0 +1,41 @@
+ /* body {
+
+    background-image: url(../../assets/Imagens/background.png);
+
+} */
+
+#teste{
+    z-index: -1;
+    opacity: 0.5;
+}
+div.cada {
+
+   
+    border: 1px solid #C5C5C5;
+    /* margin-top: 2%; */
+    background-color: white;
+    width: 487px;
+    height: 750px;
+    
+
+} 
+
+.logo {
+    margin-left: 30%;
+    margin-top: 10%;
+}
+
+div.login {
+    margin-bottom: 8%;
+    margin-left: 40%;
+}
+
+.botao {
+    margin-bottom: 10%;
+    margin-left: 15%;
+}
+
+#cadastre {
+    text-decoration: none;
+    color: #555555;
+}

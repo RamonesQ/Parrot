@@ -20,7 +20,6 @@ routes.get('/post/:id', PostValidation.getOne, PostController.getPostsById);
 routes.post('/post', PostValidation.create, PostController.postPosts);
 routes.put('/post/:id', PostValidation.update, PostController.putPosts);
 routes.delete('/post/:id', PostValidation.destroy, PostController.deletePost);
+routes.get('/post/:id', PostController.contarPost)
 
 routes.post('/login', AuthControler.login);
-
-

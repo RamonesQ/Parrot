@@ -1,5 +1,5 @@
 import { Button, Container, Form } from "react-bootstrap";
-import "./Cadastro.css"
+import "./Editar.css"
 import Logo from "../../assets/Imagens/logo.png"
 import Background from "../../assets/Imagens/background.png"
 import { useNavigate } from 'react-router-dom';
@@ -9,7 +9,7 @@ import Api from "../../api"
 
 
 
-const Cadastro = () => {
+const Editar = () => {
 
 
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -27,27 +27,22 @@ const Cadastro = () => {
 
       <Container className='cada'>
         <img className='logo' src={Logo} alt="Logo-Pagina-Login" />
-        <h5 className='login'>CADASTRO</h5>
+        <h5 className='login'>Editar</h5>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className="mb-3" controlId="formBasicEmail" style={{ padding: "1% 15%" }}>
             <Form.Control name="name" {...register('name', { required: true })} type="text" placeholder="nome" style={{ textAlign: "center" }} />
-            <small className="form-text text-danger">{errors.name && 'Nome inválido'}</small>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail" style={{ padding: "1% 15%" }}>
             <Form.Control name="email" {...register('email', { required: true })} type="email" placeholder="email" style={{ textAlign: "center" }} />
-            <small className="form-text text-danger">{errors.email && 'Email inválido'}</small>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail" style={{ padding: "1% 15%" }}>
             <Form.Control name="password" {...register('password', { required: true })} type="password" placeholder="senha" style={{ textAlign: "center" }} />
-            <small className="form-text text-danger">{errors.password && 'Password inválido'}</small>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail" style={{ padding: "1% 15%" }}>
             <Form.Control name="password" type="password" placeholder="confirmar senha" style={{ textAlign: "center" }} />
-            <small className="form-text text-danger">{errors.password && 'Password inválido'}</small>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail" style={{ padding: "1% 15%" }}>
             <Form.Control name="apartment" {...register('apartment', { required: true })} type="number" placeholder="unidade/apartamento" style={{ textAlign: "center" }} />
-            <small className="form-text text-danger">{errors.apartment && 'Apartment inválido'}</small>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword" style={{ padding: "1% 15%" }}>
             <Form.Control type="password" placeholder="link da foto" style={{ textAlign: "center" }} />
@@ -65,4 +60,4 @@ const Cadastro = () => {
   )
 }
 
-export default Cadastro
+export default Editar

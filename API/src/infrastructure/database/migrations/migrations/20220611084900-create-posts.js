@@ -9,13 +9,14 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       user_idUser: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DataTypes.INTEGER,
         references: {
           model: {
-            tableName: 'user'
+            tableName: 'user',
           },
           key: 'idUser'
-        }, allowNull: false
+        },
+        allowNull: false
       },
       content: {
         type: Sequelize.TEXT

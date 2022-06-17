@@ -2,15 +2,13 @@ import { Request, Response } from "express";
 import { relationship } from "../../../infrastructure/database/model/";
 import bcrypt from 'bcryptjs'
 require('dotenv').config();
-
-import { Op } from 'sequelize';
-
-
+// interface AuthRequest extends Request{
+//     auth: any
+//   }
 
 export const UsersController = {
     async getAllUser(req: Request, res: Response) {
         try {
-                
             const getUsers = await relationship.User.findAll({
                 include: relationship.Post,
                 attributes: ['idUser', 'name', 'email', 'apartment', 'createdAt', 'updatedAt']
