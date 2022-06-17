@@ -2,7 +2,7 @@ import { relationship } from "../../../infrastructure/database/model/";
 import { Request, Response } from "express";
 import { Post } from "../../../infrastructure/database/model/posts";
 interface AuthRequest extends Request{
-    auth: any
+    Auth: any
   }
 
 const PostController = {
@@ -38,11 +38,11 @@ const PostController = {
         }
     },
 
-    async postPosts(req: AuthRequest, res: Response) {
+    async postPosts(req: Request, res: Response) {
         try {
             const { user_idUser, content } = req.body
             const post = await relationship.Post.create({
-                user_idUser: req.auth.idUser,
+                user_idUser,
                 content
             });
 
