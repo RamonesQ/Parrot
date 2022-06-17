@@ -26,3 +26,14 @@ div.second {
    
 
 }
+#editbutton {
+
+    border: none;
+    background-color: #76BB4C;
+    border-radius: 10px;
+   
+}
+div.userscont {
+    display: flex;
+    justify-content: space-around;
+}
